@@ -12,13 +12,12 @@
   </thead>
 
   <tbody>
-    <% @users.each do |user_book| %>
+    <% @users.each do |user| %>
       <tr>
-        <td><%= User.where(id: user_book.user_id).last.username %></td>
-        <td><%= Book.where(id: user_book.book_id).last.title %></td>
-        <td><%= link_to 'Show', user_book %></td>
-        <td><%= link_to 'Edit', edit_user_book_path(user_book) %></td>
-        <td><%= link_to 'Destroy', user_book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= user.username %></td>
+        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,12 +25,6 @@
 
 <br>
 
-<%= link_to 'New User Book', new_user_book_path %>
+<%= link_to 'New User',  new_user_path %>
 
 <br>
-
-<%= link_to 'Book index', books_path %>
-
-<br>
-
-<%= link_to 'User index', users_path %>
